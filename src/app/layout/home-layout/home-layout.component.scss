@@ -1,0 +1,33 @@
+#layout-container {
+    display: grid;
+    height: 100vh;
+    grid-template-areas: 
+        "sidebar header header"
+        "sidebar content content"
+        "sidebar content content"
+        "sidebar footer footer";
+    grid-template-columns: 60px 5fr;
+    grid-template-rows: 50px 3fr 3fr 1fr;
+    
+    layout-header {
+        grid-area: header;
+        text-align: center;
+        border-bottom: 1px solid #AEB7D1;
+    }
+
+    app-sidebar {
+        grid-area: sidebar;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    app-content {
+        grid-area: content;
+    }
+    
+    app-footer {
+        grid-area: footer;
+        text-align: center;
+    }
+}
+
+

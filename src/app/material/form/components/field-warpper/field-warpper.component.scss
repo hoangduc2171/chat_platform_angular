@@ -1,0 +1,113 @@
+@use '../../../../../variables';
+
+.input-field {
+    position: relative;
+    margin-top: 20px;
+}
+
+.input-field {
+    * {
+        transition: all ease 0.2s;
+        font-family: variables.$quicksand;
+    }
+
+    label {
+        font-size: 10px;
+        position: absolute;
+        left: 13px;
+        top: 6px;
+        opacity: 0;
+        font-weight: 600;
+        color: variables.$palletblue-color;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        height: 46px;
+        border-radius: 6px;
+        border: 1px solid variables.$gray-color;
+
+       
+        &:focus {
+            padding: 20px 12px 8px 12px;
+            border: 1px solid variables.$palletblue-color;
+            outline: 1px solid variables.$palletblue-color;
+        }
+
+        &:not(:placeholder-shown) {
+            padding: 20px 12px 8px 12px;
+        }
+
+        &:focus::placeholder {
+            opacity: 0;
+        }
+
+        &:focus ~ label, &:not(:placeholder-shown) ~ label {
+            top: 6px;
+            opacity: 1;
+        }
+
+        &:not(:focus) ~ label {
+            color: variables.$gray-color;
+        }
+    }
+}
+
+.checkbox-field {
+    position: relative;
+    padding: 12px 0;
+
+    input {
+        width: 0;
+        height: 0;
+        border: transparent;
+        cursor: pointer;
+
+        &::before {
+            display: block;
+            content: "";
+            width: 18px;
+            height: 18px;
+            background-color: #f1f1f1;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid variables.$gray-color;
+            border-radius: 6px;
+            transition: all ease 0.15s;
+        }
+
+        &:checked::before {
+            border: 1px solid variables.$red-color;
+            background-color: variables.$red-color;
+        }
+
+        &::after {
+            display: none;
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 7px;
+            height: 7px;
+            width: 3px;
+            border: solid #fff;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            transition: all ease 0.15s;
+        }
+
+        &:checked::after {
+            display: block;
+        }
+    }
+
+    label {
+        margin-left: 24px;
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    
+}
