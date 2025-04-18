@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { DropdownModule } from 'src/app/material/dropdown/dropdown.module';
+import { MatModalModule } from "../../../material/modal/modal.module";
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { DropdownModule } from 'src/app/material/dropdown/dropdown.module';
     ], 
     imports: [
         CommonModule,
-        DropdownModule
+        DropdownModule,
+        MatModalModule
     ],
     exports: [HeaderComponent]
 })

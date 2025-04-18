@@ -6,7 +6,7 @@ let list : navigationItem[] = [
     id: 0, 
     title: 'Danh sách người dùng', 
     icon: 'fa-solid fa-comments', 
-    path: '/users-list'
+    path: '/users'
   },
   {
     id: 1, 

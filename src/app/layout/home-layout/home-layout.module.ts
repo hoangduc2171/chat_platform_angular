@@ -15,7 +15,7 @@ import { FooterModule } from './footer/footer.module';
     HeaderModule, 
     ContentModule, 
     SidebarModule, 
-    FooterModule
+    FooterModule,
   ],
   exports: [HomeLayoutComponent]
 })

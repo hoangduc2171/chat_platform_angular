@@ -6,9 +6,10 @@ import { Component } from "@angular/core";
         <h2>Danh sách người dùng</h2>
         <ul>
             <li *ngFor="let user of users">
-                <a [routerLink]="[user.id]">{{ user.email }}</a>
+                <a [routerLink]="['detail', user.id]">{{ user.email }}</a>
             </li>
         </ul>
+        
     `
 })
 

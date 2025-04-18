@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FeatureUserModule } from './features/user/user.module';
 import { FeatureUserDetailModule } from './features/user/detail.module';
+import { MatModalModule } from './material/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FeatureUserDetailModule } from './features/user/detail.module';
     HomeLayoutModule,
     FormsModule,
     FeatureUserModule, 
-    FeatureUserDetailModule
+    FeatureUserDetailModule,
+    MatModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

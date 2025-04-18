@@ -5,8 +5,14 @@ import { FeatureUserComponent } from './features/user/user.component';
 import { FeatureUserDetailComp } from './features/user/detail.component';
 
 const routes: Routes = [
-  { path: 'users-list', component: FeatureUserComponent },
-  { path: 'users-list/:id', component: FeatureUserDetailComp }
+  { 
+    path: 'users',
+    component: FeatureUserComponent,
+    children: [
+      
+    ]
+  },
+  { path: 'users/detail/:id', component: FeatureUserDetailComp}
 ];
 
 @NgModule({

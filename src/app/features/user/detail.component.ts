@@ -61,11 +61,8 @@ let users : User[] = [
                 <ng-template #noDesc>
                     <p class="user-infor-desc">🧐 Hiện tại chưa có mô tả</p>
                 </ng-template>
-                
             </div>
         </div>
-        
-        
     `,
     styleUrls: [
         './detail.component.scss'
