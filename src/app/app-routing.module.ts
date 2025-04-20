@@ -1,9 +1,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatureUserComponent } from './features/user/user.component';
-import { FeatureUserDetailComp } from './features/user/components/detail/detail.component';
-import { FeatureLoginComp } from './features/auth/login/login.component';
+import { FeatureUserComponent } from './modules/user/user.component';
+import { FeatureUserDetailComp } from './modules/user/components/detail/detail.component';
+import { FeatureLoginComp } from './modules/auth/login/login.component';
 
 const routes: Routes = [
   { path: 'login', component: FeatureLoginComp },

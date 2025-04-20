@@ -44,7 +44,7 @@
             </div>
             <button class="btn btn-login" type="submit">Đăng nhập</button>
             <div class="form-supports">
-                <span>Bạn chưa có tài khoản?</span>
+                <span (click)="loginModal.toggleModal()" >Bạn chưa có tài khoản?</span>
                 <a href="">Đăng ký</a>
             </div>
         </form>
@@ -57,19 +57,16 @@
         </select>
     </div>
 </div>
-<div class="modal-container hide">
-    <div class="modal">
-        <i class="close-modal fa-solid fa-xmark"></i>
-        <img src="/assets/img/forget.png" alt="">
+<mat-modal #loginModal>
+    <img src="/assets/img/forget.png" alt="">
         <h3>
             Bạn đã nhập sai quá nhiều!
         </h3>
         <div class="actions">
-            <button class="btn close-modal">
+            <button #close class="btn close-modal">
                 Thử lại
             </button>
             <a class="btn" href="./forget_password.html">Quên mật khẩu?</a>
         </div>
-    </div>
-</div>
+</mat-modal>
 <script type="module" src="./src/main.ts"></script>

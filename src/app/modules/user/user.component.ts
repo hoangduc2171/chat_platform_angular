@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { UserService } from './services/user.service';
 import { User } from "./models/user.model";
-import trackByfn from "src/app/utils/track-id";
+import trackByfn from "src/app/shared/utils/track-id";
 
 @Component({
     selector: 'feature-user',

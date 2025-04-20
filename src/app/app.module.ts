@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { HomeLayoutModule } from './layout/home-layout/home-layout.module';
 import { FormsModule } from '@angular/forms';
-import { FeatureUserModule } from './features/user/user.module';
-import { MatModalModule } from './material/modal/modal.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FeatureUserDetailModule } from './features/user/components/detail/detail.module';
-import { FeatureLoginModule } from './features/auth/login/login.module';
+import { FeatureUserModule } from './modules/user/user.module';
+import { FeatureUserDetailModule } from './modules/user/components/detail/detail.module';
+import { MatModalModule } from './shared/components/material/modal/modal.module';
+import { FeatureLoginModule } from './modules/auth/login/login.module';
+import { HomeLayoutModule } from './shared/components/layout/home-layout/home-layout.module';
 
 @NgModule({
   declarations: [

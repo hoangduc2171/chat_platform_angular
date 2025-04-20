@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { User } from "src/app/features/user/models/user.model";
+import { User } from "src/app/modules/user/models/user.model";
 
 let user : User = {
     id: 7,
