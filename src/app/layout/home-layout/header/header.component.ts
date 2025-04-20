@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { User } from "src/app/types/api";
+import { User } from "src/app/features/user/models/user.model";
 
 let user : User = {
     id: 7,
-    fullname: "Hoàng Tiến Đức",
+    first_name: "Michael",
+    last_name: "Lawson",
     email: "michael.lawson@reqres.in",
     avatar: "https://reqres.in/img/faces/7-image.jpg"
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { navigationItem } from '../../../types/api';
 
-let list : navigationItem[] = [
+let list : any[] = [
   {
     id: 0, 
     title: 'Danh sách người dùng', 

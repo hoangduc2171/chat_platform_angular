@@ -17,5 +17,5 @@ import { MatModalModule } from "../../../material/modal/modal.module";
 })
 
 export class HeaderModule {
-
+    
 }

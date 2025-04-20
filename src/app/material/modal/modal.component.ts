@@ -12,9 +12,15 @@ export class MatModalComp {
     @ViewChild('modal') modalContainer! : ElementRef<HTMLElement>;
     @ViewChild('close') closeButton! : ElementRef<HTMLElement>;
     @ContentChild('close') childCloseButton! : ElementRef<HTMLElement>;
+    @ContentChild('modalChild') childComponent! : any;
+
     @Input() modalTitle! : string; 
-    isShowModal : boolean = true;
-    toggleModal() {
+    isShowModal : boolean = false;
+
+    toggleModal(params?: unknown) {
+        if (params && this.childComponent) {
+            this.childComponent.data = params;
+        }
         this.isShowModal = !this.isShowModal;
     }
     ngAfterViewInit(): void {

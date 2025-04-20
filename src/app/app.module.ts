@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeLayoutModule } from './layout/home-layout/home-layout.module';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { FeatureUserModule } from './features/user/user.module';
-import { FeatureUserDetailModule } from './features/user/detail.module';
 import { MatModalModule } from './material/modal/modal.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FeatureUserDetailModule } from './features/user/components/detail/detail.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { MatModalModule } from './material/modal/modal.module';
     FormsModule,
     FeatureUserModule, 
     FeatureUserDetailModule,
-    MatModalModule
+    MatModalModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

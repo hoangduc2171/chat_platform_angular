@@ -1,0 +1,36 @@
+<button (click)="updateUserModal.toggleModal()">
+    Cập nhật
+</button>
+<button (click)="deleteUserModal.toggleModal()">
+    Xóa
+</button>
+<div class="user-detail-container">
+    <div class="user-detail-images">
+        <div class="user-detail-background"></div>
+        <img class="user-detail-avatar" [src]="user.avatar" [alt]="user.last_name">
+    </div>
+    <div class="user-detail-infor">
+        <div class="user-infor-heading">
+            <div class="user-infor-name">
+                <h1>{{ user.first_name }}</h1>
+                <i class="user-infor-fullname">({{ user.first_name }} {{ user.last_name }})</i>
+            </div>
+            <p class="user-infor-email">📩 {{ user.email }}</p>
+        </div>
+        <p class="user-infor-desc" *ngIf="user.desc; else noDesc">{{ user.desc }}</p>
+        <ng-template #noDesc>
+            <p class="user-infor-desc">🧐 Hiện tại chưa có mô tả</p>
+        </ng-template>
+    </div>
+    <mat-modal #updateUserModal modalTitle="Cập nhật thông tin">
+        <user-update [user]="user" #modalChild></user-update>
+        <button #close></button>
+    </mat-modal>
+    <mat-modal #deleteUserModal modalTitle="Xóa người dùng">
+        <div>
+            <p>
+                Hệ thống sẽ điều chỉnh tồn kho về 0 vì hàng hóa 8934563116262 còn tồn kho sẽ ảnh hưởng tới giá trị kho trong các báo cáo. Bạn có chắc chắn muốn xóa?
+            </p>
+        </div>
+    </mat-modal>
+</div>

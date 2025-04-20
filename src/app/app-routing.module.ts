@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeatureUserComponent } from './features/user/user.component';
-import { FeatureUserDetailComp } from './features/user/detail.component';
+import { FeatureUserDetailComp } from './features/user/components/detail/detail.component';
 
 const routes: Routes = [
   { 

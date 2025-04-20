@@ -1,20 +1,14 @@
 <div id="header">
     <div class="actions">
-        <div class="notify" (click)="createUserModal.toggleModal()">
+        <div class="notify">
             <i class="notify-icon fa-solid fa-bell"></i>
-            <mat-modal #createUserModal
-                modalTitle="Thêm người dùng"
-            >
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dignissimos excepturi, molestiae maxime temporibus debitis omnis ut cum possimus assumenda quaerat, distinctio aliquam eligendi, nihil optio quisquam architecto voluptate minus.</p>
-                <button #close>Hủy bỏ</button>
-            </mat-modal>
         </div>
         <div class="infor" (click)="dropdownUser.toggleDropdown()">
             <img [src]="user.avatar" alt="">
             <dropdown #dropdownUser>
                 <div class="infor-detail">
-                    <img [src]="user.avatar" [alt]="user.fullname">
-                    <p class="fullname">{{user.fullname}}</p>
+                    <img [src]="user.avatar" [alt]="user.first_name">
+                    <p class="fullname">{{user.first_name}} {{ user.last_name }}</p>
                     <p class="role">Admin</p>
                 </div>
                 <li>

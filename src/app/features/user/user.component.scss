@@ -1,0 +1,65 @@
+@use '../../../variables';
+
+.table-container {
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 0 12px 4px rgba($color: #000, $alpha: 0.05);
+    margin-top: 36px;
+
+    table {
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    thead {
+        tr {
+            background-color: variables.$red-color;
+            color: #fff;
+            border-spacing: 12px;
+
+            th {
+                padding: 16px 24px;
+                border: none;
+                text-align: left;
+            }
+        }
+    }
+
+    .table-body {
+        height: 250px;
+        overflow-y: scroll;
+    }
+
+    tbody {
+        height: 100px;
+        overflow: hidden;
+        tr {
+            &:nth-child(even) {
+                background-color: rgba($color: variables.$red-color, $alpha: 0.07);
+            }
+        
+            &:hover {
+                cursor: pointer;
+                color: variables.$red-color;
+                
+                img {
+                    opacity: 0.6;
+                    transition: all ease 0.2s;
+                }
+            }
+    
+            td {
+                padding: 8px 24px;
+                transition: all ease 0.2s;
+            }
+    
+            img {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+

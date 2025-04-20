@@ -10,6 +10,7 @@ import { FooterModule } from './footer/footer.module';
   declarations: [
     HomeLayoutComponent,
   ],
+  
   imports: [
     CommonModule,
     HeaderModule, 
