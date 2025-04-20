@@ -10,6 +10,7 @@ import { FeatureUserModule } from './features/user/user.module';
 import { MatModalModule } from './material/modal/modal.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FeatureUserDetailModule } from './features/user/components/detail/detail.module';
+import { FeatureLoginModule } from './features/auth/login/login.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FeatureUserDetailModule } from './features/user/components/detail/detai
     FeatureUserModule, 
     FeatureUserDetailModule,
     MatModalModule, 
-    HttpClientModule
+    HttpClientModule,
+    FeatureLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
