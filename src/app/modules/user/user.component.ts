@@ -28,5 +28,6 @@ export class FeatureUserComponent {
     showDetailUser(id: number) {
         this.router.navigate(['users/detail'], { queryParams: this.users.find(user => user.id === id) });
     }
+    
 }   
 

@@ -1,6 +1,7 @@
 
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UserService } from "../../services/user.service";
 
 @Component({
     selector: 'user-create',
@@ -9,18 +10,23 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 export class FeUserCreateComp {
     form!: FormGroup;
 
+    constructor(private userService: UserService) {}
+
     ngOnInit() {
         this.form = new FormGroup({
-            firstName: new FormControl('', [Validators.required]),
-            lastName: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required, Validators.email])
+            first_name: new FormControl('', [Validators.required]),
+            last_name: new FormControl('', [Validators.required]),
+            email: new FormControl('', [Validators.required, Validators.email]),
+            avatar: new FormControl('')
         });
     }
 
     onSubmit() {
-        if (this.form.valid) {
-            console.log('Form submitted:', this.form.value);
-        }
+        this.userService.createUser(this.form.value).subscribe({
+            next: (response) => {
+                console.log("Result: " + response);
+            }
+        })
     }
 }
 

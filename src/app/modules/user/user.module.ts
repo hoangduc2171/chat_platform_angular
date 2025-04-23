@@ -13,7 +13,8 @@ import { MatButtonModule } from "../../shared/components/material/button/button.
     RouterModule,
     MatModalModule,
     FeUserCreateModule,
-    MatButtonModule
+    MatButtonModule, 
+    FeUserCreateModule
 ],
     exports: [FeatureUserComponent]
 })

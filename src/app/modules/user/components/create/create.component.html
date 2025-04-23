@@ -2,20 +2,20 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <label>First Name:</label>
     <input
-      formControlName="firstName"
+      formControlName="first_name"
       required
       minlength="3"
     />
-    <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+    <div *ngIf="form.get('first_name')?.invalid && form.get('first_name')?.touched">
       Tên bắt buộc và phải dài ít nhất 3 ký tự.
     </div>
     <label>Last Name:</label>
     <input
-      formControlName="lastName"
+      formControlName="last_name"
       required
       minlength="3"
     />
-    <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+    <div *ngIf="form.get('last_name')?.invalid && form.get('last_name')?.touched">
       Tên bắt buộc và phải dài ít nhất 3 ký tự.
     </div>
     <label>Email:</label>
