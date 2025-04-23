@@ -18,7 +18,8 @@
     }
 
     .modal-content {
-        width: 800px;
+        min-width: 500px;
+        max-width: 100%;
         background-color: #fff;
         border-radius: 12px;
         animation: animations.$moveDown ease 0.3s;

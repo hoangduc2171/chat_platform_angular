@@ -4,5 +4,5 @@ export interface User {
     desc? : string,
     first_name: string,
     last_name: string,
-    avatar: string
+    avatar: string,
 }

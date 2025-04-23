@@ -28,6 +28,7 @@
         </ng-template>
     </div>
     <mat-modal #updateUserModal modalTitle="Cập nhật thông tin">
+        <update-user #updateUser [user]="user"></update-user>
         <div class="user-detail-options">
             <mat-button
                 label="Hủy"
@@ -36,11 +37,14 @@
             ></mat-button>
             <mat-button
                 label="Cập nhật"
-                (clickEmitter)="updateUserModal.toggleModal()"
+                (clickEmitter)="updateUser.update()"
             ></mat-button>
         </div>
     </mat-modal>
     <mat-modal #deleteUserModal modalTitle="Xóa người dùng">
+        <p>Bạn có chắc chắn muốn xóa người dùng tên 
+            <b style="color: #EE0033">{{user.first_name}} {{user.last_name}}</b> 
+        không?</p>
         <div class="user-detail-options">
             <mat-button
                 label="Hủy"
@@ -49,7 +53,7 @@
             ></mat-button>
             <mat-button
                 label="Đồng ý"
-                (clickEmitter)="deleteUserModal.toggleModal()"
+                (clickEmitter)="delete()"
             ></mat-button>
         </div>
     </mat-modal>

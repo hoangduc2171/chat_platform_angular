@@ -17,14 +17,14 @@ export class FeatureUserComponent {
     }
 
     users! : User[];
+    lengthOfUsers! : number;
     constructor(private userService : UserService, private router : Router) { }
-
     ngOnInit(): void {
         this.userService.getUsers().subscribe(users => {
-            this.users = users.data;
+            this.users = users;
+            this.lengthOfUsers = this.users.length;
         })    
     }
-
     showDetailUser(id: number) {
         this.router.navigate(['users/detail'], { queryParams: this.users.find(user => user.id === id) });
     }
