@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, ViewChild } from "@angular/core";
+import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 
 @Component({
     selector: 'mat-modal',
@@ -11,21 +11,14 @@ import { Component, ContentChild, ElementRef, Input, ViewChild } from "@angular/
 export class MatModalComp {
     @ViewChild('modal') modalContainer! : ElementRef<HTMLElement>;
     @ViewChild('close') closeButton! : ElementRef<HTMLElement>;
-    @ContentChild('close') childCloseButton! : ElementRef<HTMLElement>;
-    @ContentChild('modalChild') childComponent! : any;
-
     @Input() modalTitle! : string; 
     isShowModal : boolean = false;
 
-    toggleModal(params?: unknown) {
-        if (params && this.childComponent) {
-            this.childComponent.data = params;
-        }
+    toggleModal() {
         this.isShowModal = !this.isShowModal;
     }
     ngAfterViewInit(): void {
         const modalElement = this.modalContainer.nativeElement;
-        let closeButtons = [this.childCloseButton, this.closeButton];
         modalElement.onclick = () => {
             this.toggleModal();
         }
@@ -34,12 +27,8 @@ export class MatModalComp {
             e.stopPropagation();
         })
         // Nút tắt Modal trong modal
-        closeButtons.forEach(button => {
-            if (button) {
-                button.nativeElement?.addEventListener('click', () => {
-                    this.toggleModal();
-                })
-            }
-        })
+        this.closeButton.nativeElement.onclick = () => {
+            this.toggleModal();
+        }
     }
 }

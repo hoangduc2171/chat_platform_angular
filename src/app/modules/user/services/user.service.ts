@@ -14,8 +14,4 @@ export class UserService {
     getUsers() : Observable<any> {
         return this.http.get(this.apiUrl);
     }
-
-    getUserById(users: User[], id: number) {
-        return users.find(user => user.id === id) as User;
-    }
 }

@@ -8,11 +8,17 @@ import { FeatureUserComponent } from '../../user.component';
     selector: 'feature-user-detail',
     templateUrl: 'detail.component.html',
     styleUrls: [
+        'detail.component.scss'
     ]
 })
 
 export class FeatureUserDetailComp {
-    users! : User[];
-    user! : User;
-    
+    user! : any;
+    constructor(private router : ActivatedRoute) { }
+
+    ngOnInit() {
+        this.router.queryParams.subscribe(params => {
+            this.user = params;
+        });  
+    }
 }

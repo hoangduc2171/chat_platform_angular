@@ -1,9 +1,14 @@
-<button (click)="updateUserModal.toggleModal()">
-    Cập nhật
-</button>
-<button (click)="deleteUserModal.toggleModal()">
-    Xóa
-</button>
+<div class="user-detail-options">
+    <mat-button 
+        label="Cập nhật"
+        (click)="updateUserModal.toggleModal()">
+    </mat-button>
+    <mat-button 
+        [isOutline]="true"
+        label="Xóa"
+        (click)="deleteUserModal.toggleModal()">
+    </mat-button>
+</div>
 <div class="user-detail-container">
     <div class="user-detail-images">
         <div class="user-detail-background"></div>
@@ -23,14 +28,29 @@
         </ng-template>
     </div>
     <mat-modal #updateUserModal modalTitle="Cập nhật thông tin">
-        <user-update [user]="user" #modalChild></user-update>
-        <button #close></button>
+        <div class="user-detail-options">
+            <mat-button
+                label="Hủy"
+                [isOutline]="true"
+                (clickEmitter)="updateUserModal.toggleModal()"
+            ></mat-button>
+            <mat-button
+                label="Cập nhật"
+                (clickEmitter)="updateUserModal.toggleModal()"
+            ></mat-button>
+        </div>
     </mat-modal>
     <mat-modal #deleteUserModal modalTitle="Xóa người dùng">
-        <div>
-            <p>
-                Hệ thống sẽ điều chỉnh tồn kho về 0 vì hàng hóa 8934563116262 còn tồn kho sẽ ảnh hưởng tới giá trị kho trong các báo cáo. Bạn có chắc chắn muốn xóa?
-            </p>
+        <div class="user-detail-options">
+            <mat-button
+                label="Hủy"
+                [isOutline]="true"
+                (clickEmitter)="deleteUserModal.toggleModal()"
+            ></mat-button>
+            <mat-button
+                label="Đồng ý"
+                (clickEmitter)="deleteUserModal.toggleModal()"
+            ></mat-button>
         </div>
     </mat-modal>
 </div>

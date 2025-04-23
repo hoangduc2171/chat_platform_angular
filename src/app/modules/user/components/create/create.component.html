@@ -1,0 +1,32 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>First Name:</label>
+    <input
+      formControlName="firstName"
+      required
+      minlength="3"
+    />
+    <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched">
+      Tên bắt buộc và phải dài ít nhất 3 ký tự.
+    </div>
+    <label>Last Name:</label>
+    <input
+      formControlName="lastName"
+      required
+      minlength="3"
+    />
+    <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched">
+      Tên bắt buộc và phải dài ít nhất 3 ký tự.
+    </div>
+    <label>Email:</label>
+    <input
+      formControlName="email"
+      required
+      email
+    />
+    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      Email không hợp lệ.
+    </div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+

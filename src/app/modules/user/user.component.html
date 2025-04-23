@@ -1,41 +1,38 @@
 <div id="user-list">
-    <h2>Danh sách người dùng</h2>
-    <button (click)="createUserModal.toggleModal()">
-        Thêm người dùng
-    </button>
-    <div class="table-container">
-        <table class="table-head">
-            <thead>
+    <div class="user-list-options">
+        <h2>Danh sách người dùng</h2>
+        <mat-button
+            label="Thêm mới"
+            (clickEmitter)="createUserModal.toggleModal()"
+        ></mat-button>
+    </div>
+    <div class="user-list-container">
+        <div class="user-list-heading">
+            <table>
                 <tr>
-                    <th>STT</th>
                     <th>ID</th>
                     <th></th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                 </tr>
-                <tr>
-                    
-                </tr>
-            </thead>
-        </table>
-        <div class="table-body">
+            </table>
+        </div>
+        <div class="user-list-content">
             <table>
-                <tbody>
-                    <tr *ngFor="let user of users; let i = index; trackBy : trackByfn">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ user.id }}</td>
-                        <td>
-                            <img [src]="user.avatar" alt="">
-                        </td>
-                        <td>{{ user.first_name }}</td>
-                        <td>{{ user.last_name }}</td>
-                        <td>{{ user.email }}</td>
-                    </tr>
-                </tbody>
+                <tr *ngFor="let user of users; trackBy : trackByfn" (click)="showDetailUser(user.id)" >
+                    <td style="width: 20px;">{{ user.id }}</td>
+                    <td>
+                        <img [src]="user.avatar" alt="">
+                    </td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
             </table>
         </div>
     </div>
+    <p class="user-list-counting">Tổng số<b style="color: #EE0033;"> {{ users.length }} </b>người dùng</p>
     <mat-modal #createUserModal modalTitle="Thêm người dùng mới">
         
     </mat-modal>

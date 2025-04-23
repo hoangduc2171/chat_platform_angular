@@ -8,12 +8,6 @@
     font-weight: 600;
 }
 
-
-html {
-    font-family: "Quicksand", sans-serif;
-    font-size: 62.5%;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -69,13 +63,13 @@ html {
 
     .title {
         font-family: Helvetica, sans-serif;
-        font-size: 3rem;
+        font-size: 24px;
         font-weight: 500;
     }
 
     .caption {
         margin-top: 12px;
-        font-size: 1.5rem;
+        font-size: 14px;
         font-weight: 500;
     }
 }
@@ -162,6 +156,7 @@ html {
         top: 6px;
         opacity: 0;
         font-weight: 600;
+        font-size: 12px;
         color: variables.$palletblue-color;
     }
 
@@ -207,7 +202,7 @@ html {
 
 #password-forget {
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 14px;
     font-weight: 600;
     color: variables.$palletblue-color;
 }
@@ -261,7 +256,7 @@ html {
     label {
         margin-left: 24px;
         font-weight: 500;
-        font-size: 1.4rem;
+        font-size: 12px;
     }
 
     
@@ -269,7 +264,7 @@ html {
 
 .form-supports {
     margin: 8px 12px 24px 12px;
-    font-size: 1.2rem;
+    font-size: 12px;
 
     a {
         color: variables.$palletblue-color;

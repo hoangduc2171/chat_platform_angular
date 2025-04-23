@@ -4,20 +4,20 @@ let list : any[] = [
   {
     id: 0, 
     title: 'Danh sách người dùng', 
-    icon: 'fa-solid fa-comments', 
-    path: '/users'
+    icon: 'fa-solid fa-user', 
+    path: 'users'
   },
   {
     id: 1, 
     title: 'Danh sách đối tác', 
-    icon: 'fa-solid fa-user', 
-    path: '/opposite-list'
+    icon: 'fa-solid fa-comments', 
+    path: 'opposite-list'
   }, 
   {
     id: 2, 
     title: 'Danh sách sản phấm', 
     icon: 'fa-solid fa-inbox', 
-    path: '/product-list'
+    path: 'product-list'
   }
 ]
 
