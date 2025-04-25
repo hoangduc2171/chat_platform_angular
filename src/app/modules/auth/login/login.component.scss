@@ -1,5 +1,4 @@
 @use '../../../../variables';
-@use '../../../../button';
 @use '../../../../mixin';
 
 %message {
@@ -13,10 +12,6 @@
     margin: 0;
     box-sizing: border-box;
     
-}
-
-.btn {
-    @extend %btn;
 }
 
 .container {

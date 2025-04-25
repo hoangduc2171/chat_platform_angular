@@ -1,0 +1,40 @@
+<form class="user-form-container" action="" [formGroup]="formName">
+    <div class="col-half">
+        <div class="form-field">
+            <label for="">
+                First Name
+                <span *ngIf="isRequired">*</span>
+            </label>
+            <div class="input-field">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" placeholder="First Name" formControlName="first_name">
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="">
+                Last Name
+                <span *ngIf="isRequired">*</span>
+            </label>
+            <div class="input-field">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" placeholder="Last Name" formControlName="last_name">
+            </div>
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="">
+            Email
+            <span *ngIf="isRequired">*</span>
+        </label>
+        <div class="input-field">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="text" placeholder="Email" formControlName="email">
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="">Mô tả</label>
+        <div class="input-field">
+            <textarea formControlName="desc" id=""></textarea>
+        </div>
+    </div>
+</form>

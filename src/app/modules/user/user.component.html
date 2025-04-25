@@ -20,10 +20,10 @@
         </div>
         <div class="user-list-content">
             <table>
-                <tr *ngFor="let user of users; trackBy : trackByfn" (click)="showDetailUser(user.id)" >
+                <tr *ngFor="let user of users; trackBy: trackByfn" (click)="showDetailUser(user.id)" >
                     <td style="width: 20px;">{{ user.id }}</td>
                     <td>
-                        <img [src]="user.avatar || 'https://cdn3.iconfinder.com/data/icons/web-design-and-development-2-6/512/87-1024.png'" alt="">
+                        <img [src]="user.avatar" alt="">
                     </td>
                     <td>{{ user.first_name }}</td>
                     <td>{{ user.last_name }}</td>
@@ -34,7 +34,17 @@
     </div>
     <p class="user-list-counting">Tổng số<b style="color: #EE0033;"> {{ lengthOfUsers || '...' }} </b>người dùng</p>
     <mat-modal #createUserModal modalTitle="Thêm người dùng mới">
-        <user-create></user-create>
-
+        <user-create #createForm></user-create>
+        <div class="user-detail-options">
+            <mat-button
+                label="Hủy"
+                [isOutline]="true"
+                (clickEmitter)="createUserModal.toggleModal()"
+            ></mat-button>
+            <mat-button
+                label="Đồng ý"
+                (clickEmitter)="createForm.create()"
+            ></mat-button>
+        </div>
     </mat-modal>
 </div>

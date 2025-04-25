@@ -2,29 +2,25 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "../../services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'user-create',
-    templateUrl: './create.component.html'
+    template: `<user-form [formName]="createForm"></user-form>`
 })
 export class FeUserCreateComp {
-    form!: FormGroup;
+    createForm!: FormGroup;
 
-    constructor(private userService: UserService) {}
-
-    ngOnInit() {
-        this.form = new FormGroup({
-            first_name: new FormControl('', [Validators.required]),
-            last_name: new FormControl('', [Validators.required]),
-            email: new FormControl('', [Validators.required, Validators.email]),
-            avatar: new FormControl('')
-        });
+    constructor(
+        private userService: UserService,
+        private router : Router
+    ) {
+        this.createForm = userService.createUserForm()
     }
-
-    onSubmit() {
-        this.userService.createUser(this.form.value).subscribe({
-            next: (response) => {
-                console.log("Result: " + response);
+    create() {
+        this.userService.createUser(this.createForm.value).subscribe({
+            next: () => {
+                this.router.navigate(['user']);
             }
         })
     }

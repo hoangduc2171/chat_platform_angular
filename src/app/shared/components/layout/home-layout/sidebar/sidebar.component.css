@@ -1,0 +1,29 @@
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+}
+#sidebar .logo {
+  width: 50px;
+}
+#sidebar .navigation a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  color: #AEB7D1;
+  text-decoration: none;
+}
+#sidebar .navigation a:hover, #sidebar .navigation a.active {
+  color: #EE0033;
+  background-color: rgba(238, 0, 51, 0.1019607843);
+}
+#sidebar .navigation a i {
+  font-size: 20px;
+}/*# sourceMappingURL=sidebar.component.css.map */
