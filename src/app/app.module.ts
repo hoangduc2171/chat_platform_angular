@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeatureUserModule } from './modules/user/user.module';
-import { FeatureUserDetailModule } from './modules/user/components/detail/detail.module';
-import { MatModalModule } from './shared/components/material/modal/modal.module';
-import { FeatureLoginModule } from './modules/auth/login/login.module';
-import { HomeLayoutModule } from './shared/components/layout/home-layout/home-layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './modules/auth/auth.module';
+import { HomeLayoutModule } from './shared/layout/home-layout/home-layout.module';
+import { MaterialsModule } from './shared/materials/materials.module';
 
 @NgModule({
   declarations: [
@@ -24,10 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     FeatureUserModule, 
-    FeatureUserDetailModule,
-    MatModalModule, 
     HttpClientModule,
-    FeatureLoginModule
+    MaterialsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

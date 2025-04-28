@@ -4,12 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeatureUserComponent } from './modules/user/user.component';
 import { FeatureUserDetailComp } from './modules/user/components/detail/detail.component';
 import { FeatureLoginComp } from './modules/auth/login/login.component';
-import { HomeLayoutComponent } from './shared/components/layout/home-layout/home-layout.component';
 import { HomeGuard } from './guards/home-guard.guard';
+import { AuthComponent } from './modules/auth/auth.component';
+import { HomeLayoutComponent } from './shared/layout/home-layout/home-layout.component';
 
 const routes: Routes = [
   { path: 'login', component: FeatureLoginComp },
-
+  { path: 'auth', component: AuthComponent },
   { 
     path: '', component: HomeLayoutComponent, 
     children: [

@@ -39,7 +39,7 @@ import { Component, Input, Output } from "@angular/core";
     `]
 })
 
-export class DropdownComponent {
+export class MatDropdownComp {
     @Input() isShowDropdown = false;
 
     stopToggle(event: Event) : void {
