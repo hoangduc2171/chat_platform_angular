@@ -7,6 +7,7 @@ import { EventEmitter } from "@angular/core";
         <button #button
             [type]="type"
             [class.outline]="isOutline"
+            [class.full-size]="isFullSize"
             (click)="onClick($event)"
         >{{ label }}</button>
     `,
@@ -19,6 +20,7 @@ export class MatButtonComp {
     @Input() label: string = 'Click';
     @Input() type! : 'button' | 'submit' | 'reset';
     @Input() isOutline: boolean = false;
+    @Input() isFullSize: boolean = false;
     @Output() clickEmitter = new EventEmitter();
     
     onClick(event: any) {

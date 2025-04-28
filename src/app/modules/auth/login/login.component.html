@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="form-container">
-        <form action="" id="sign-in__form">
+        <div id="sign-in__form">
             <img class="vss-logo" src="/assets/img/vss-logo.png" alt="">
             <h3 class="title">Đăng nhập vào tài khoản của bạn</h3>
             <div class="input-field">
@@ -42,12 +42,16 @@
                 </div>
                 <a id="password-forget" href="./forget_password.html">Quên mật khẩu?</a>
             </div>
-            <button class="btn btn-login" type="submit">Đăng nhập</button>
+            <mat-button class="form-submit"
+                label="Đăng nhập"
+                [isFullSize]="true"
+                (clickEmitter)="signIn()"
+            ></mat-button>
             <div class="form-supports">
                 <span (click)="loginModal.toggleModal()" >Bạn chưa có tài khoản?</span>
                 <a href="">Đăng ký</a>
             </div>
-        </form>
+        </div>
     </div>
     <div id="language-box">
         <img src="/assets/img/global.png" alt="">

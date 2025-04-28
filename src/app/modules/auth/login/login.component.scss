@@ -104,6 +104,10 @@
 .form-container {
     display: flex;
     align-items: center;
+
+    .form-submit {
+        margin-top: 16px
+    }
 }
 
 #sign-in__form {
@@ -127,10 +131,6 @@
         align-items: center;
         margin-top: 16px;
         position: relative;
-    }
-
-    .btn-login {
-        margin-top: 20px;
     }
 }
 

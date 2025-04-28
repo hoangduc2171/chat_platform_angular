@@ -18,4 +18,8 @@ button {
         background-color: transparent;
         color: variables.$red-color;
     }
+
+    &.full-size {
+        width: 100%;
+    }
 }

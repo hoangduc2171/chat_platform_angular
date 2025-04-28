@@ -22,6 +22,7 @@ import { Component, Input, Output } from "@angular/core";
             animation: ease FadeIn 0.2s; 
             list-style: none;
             padding: 16px 0 20px 0;
+            z-index: 999;
 
             &.show {
                 display: block;

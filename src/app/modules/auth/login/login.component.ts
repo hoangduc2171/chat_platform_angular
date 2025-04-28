@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { LogOutService } from "src/app/shared/services/logout.service";
 
 @Component({
     selector: 'feature-login',
@@ -10,5 +12,12 @@ import { Component } from "@angular/core";
 })
 
 export class FeatureLoginComp {
+    constructor (private logOutService: LogOutService, private router: Router) {
 
+    }
+
+    signIn() {
+        this.logOutService.checkInLogOut();
+        this.router.navigate(['/']);
+    }
 }

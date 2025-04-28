@@ -2,6 +2,7 @@ import { Component, SimpleChanges } from "@angular/core";
 import { UserService } from './services/user.service';
 import { User } from "./models/user.model";
 import { Router } from '@angular/router';
+import { UserTransferService } from './services/data-transfer.service';
 
 @Component({
     selector: 'feature-user',
@@ -18,9 +19,10 @@ export class FeatureUserComponent {
 
     users! : User[];
     lengthOfUsers! : number;
-    constructor(private userService : UserService, private router : Router) {
-        
-    }
+    constructor(
+        private userService : UserService, 
+        private router : Router,
+    ) { }
     ngOnInit(): void {
         this.userService.getUsers().subscribe(users => {
             this.users = users;
@@ -29,7 +31,7 @@ export class FeatureUserComponent {
     }
     
     showDetailUser(id: number) {
-        this.router.navigate(['users/detail'], { queryParams: this.users.find(user => user.id === id) });
-    }
+        this.router.navigate(['users/detail', id], { queryParams: this.users.find(user => user.id === id) });
+    }    
 }   
 
