@@ -10,10 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './modules/auth/auth.module';
 import { HomeLayoutModule } from './shared/layout/home-layout/home-layout.module';
 import { MaterialsModule } from './shared/materials/materials.module';
+import { AppLoading } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppLoading
   ],
 
   imports: [

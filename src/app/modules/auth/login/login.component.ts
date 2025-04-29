@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { LogOutService } from "src/app/shared/services/logout.service";
 import { ToastService } from '../../../shared/materials/toast/toast.service';
+import { LoadingService } from "src/app/shared/loading/loading.service";
 
 @Component({
     selector: 'feature-login',
@@ -20,7 +21,8 @@ export class FeatureLoginComp {
         private logOutService: LogOutService,
         private router: Router,
         private http: HttpClient,
-        private toastService : ToastService
+        private toastService : ToastService,
+        private loading: LoadingService
     ) {
         this.loginForm = new FormGroup({
             username: new FormControl('', [
@@ -39,6 +41,8 @@ export class FeatureLoginComp {
         let router = this.router;
         let toast = this.toastService;
         const logOutService = this.logOutService;
+        let loading = this.loading;
+        loading.show();
         this.http.get('https://6804980a79cb28fb3f5b5662.mockapi.io/decentralization').subscribe({
             next(data: any) {
                 const isAccount = data.filter((element: any) => {
@@ -47,7 +51,8 @@ export class FeatureLoginComp {
                 if (!!isAccount) {
                     if (isAccount.password === form.value.password) {
                         logOutService.checkInLogOut();
-                        router.navigate(['/'])
+                        loading.hide();
+                        router.navigate(['/users'])
                     }
                 } else {
                     toast.showToast('Tài khoản không tồn tại!', 'error')

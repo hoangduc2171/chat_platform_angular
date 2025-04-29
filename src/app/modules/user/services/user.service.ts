@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AppRoutingModule } from '../../../app-routing.module';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { LoadingService } from "src/app/shared/loading/loading.service";
 
 @Injectable({
     providedIn: 'root',
@@ -12,9 +13,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 export class UserService {
     private apiUrl = 'https://6804980a79cb28fb3f5b5662.mockapi.io/users';
-    constructor(private http : HttpClient, private formBuilder : FormBuilder) {
-        
-    }
+    constructor(
+        private http : HttpClient, 
+        private formBuilder : FormBuilder
+    ) { }
 
     createUserForm() : FormGroup {
         return this.formBuilder.group({

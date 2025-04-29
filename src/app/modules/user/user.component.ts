@@ -3,6 +3,7 @@ import { UserService } from './services/user.service';
 import { User } from "./models/user.model";
 import { Router } from '@angular/router';
 import { UserTransferService } from './services/data-transfer.service';
+import { LoadingService } from "src/app/shared/loading/loading.service";
 
 @Component({
     selector: 'feature-user',
@@ -23,10 +24,14 @@ export class FeatureUserComponent {
     constructor(
         private userService : UserService, 
         private router : Router,
+        private loading: LoadingService
     ) { }
 
     ngOnInit(): void {
+        let loading = this.loading;
+        loading.show();
         this.userService.getUsers().subscribe(users => {
+            loading.hide();
             this.users = users;
             this.lengthOfUsers = this.users.length;
         })
