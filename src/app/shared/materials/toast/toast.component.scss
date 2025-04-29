@@ -1,0 +1,56 @@
+@use '../../../../variables';
+@use '../../../../animations';
+
+.error-notify {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: center;
+    box-shadow: 0 0 10px 4px rgba($color: variables.$palletblue-color, $alpha: 0.15);
+    animation: animations.$fadeIn ease 0.3s;
+
+    .error-close {
+        font-size: 24px;
+        color: #fff;
+        padding: 16px;
+        border: none;
+        box-shadow: 0 0 10px 4px rgba($color: variables.$palletblue-color, $alpha: 0.15);
+        cursor: pointer;
+    }
+
+    .error-title {
+        font-size: 16px;
+        margin-left: 16px;
+        font-weight: 600;
+        padding-right: 32px;
+    }
+}
+
+.error-notify.error {
+    opacity: 1;
+    display: flex;
+
+    .error-close {
+        background-color: variables.$red-color;
+    }
+    .error-title {
+        color: variables.$red-color;
+    }
+}
+
+.error-notify.warning {
+    opacity: 1;
+    display: flex;
+
+    .error-close {
+        background-color: variables.$yellow-color;
+    }
+    .error-title {
+        color: variables.$yellow-color;
+    }
+}

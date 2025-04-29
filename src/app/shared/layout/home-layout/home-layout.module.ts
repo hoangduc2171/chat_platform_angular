@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeLayoutComponent } from './home-layout.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
-import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { MaterialsModule } from '../../materials/materials.module';
@@ -14,7 +13,6 @@ import { MaterialsModule } from '../../materials/materials.module';
     HeaderComponent,
     SidebarComponent,
     ContentComponent,
-    FooterComponent,
   ],
   
   imports: [

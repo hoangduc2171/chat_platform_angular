@@ -1,4 +1,10 @@
 <div id="header">
+    <mat-button
+        label="Quay lại"
+        [onlyText]="true"
+        icon="fa-solid fa-arrow-left"
+        (clickEmitter)="goBack()"
+    ></mat-button>
     <div class="actions">
         <div class="notify">
             <i class="notify-icon fa-solid fa-bell"></i>

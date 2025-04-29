@@ -1,3 +1,4 @@
+import { Location } from "@angular/common";
 import { Component, ContentChild, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "src/app/modules/user/models/user.model";
@@ -19,16 +20,24 @@ let user : User = {
 
 export class HeaderComponent {
     @ViewChild('logOut') logOutButton! : ElementRef;
-    constructor(private logOutService : LogOutService, private router: Router) { }
+    isShowDropdown = false;
+    isEmpty = false;
+    user = user;
+
+    constructor(
+        private logOutService : LogOutService, 
+        private router: Router,
+        private location: Location,
+    ) { }
     
     ngAfterViewInit(): void {
         this.logOutButton.nativeElement.onclick = () => {
            this.logOutService.isLogOut();
-           this.router.navigate(['/login']);
+           this.router.navigate(['/auth/login']);
         }
     }
-    
-    isShowDropdown = false;
-    isEmpty = false;
-    user = user;
+
+    goBack() {
+        this.location.back();
+    }
 }

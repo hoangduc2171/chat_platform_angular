@@ -7,10 +7,15 @@ import { FeatureLoginComp } from './modules/auth/login/login.component';
 import { HomeGuard } from './guards/home-guard.guard';
 import { AuthComponent } from './modules/auth/auth.component';
 import { HomeLayoutComponent } from './shared/layout/home-layout/home-layout.component';
+import { FeForgetComp } from './modules/auth/forget/forget.component';
 
 const routes: Routes = [
-  { path: 'login', component: FeatureLoginComp },
-  { path: 'auth', component: AuthComponent },
+  { path: 'auth', component: AuthComponent, 
+    children: [
+      { path: 'login', component: FeatureLoginComp },
+      { path: 'forget', component: FeForgetComp },
+    ]
+  },
   { 
     path: '', component: HomeLayoutComponent, 
     children: [

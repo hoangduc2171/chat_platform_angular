@@ -3,7 +3,7 @@
 @mixin form-content($width) {
     width: $width;
     min-width: 60%;
-    max-width: 90%;
+    max-width: 100%;
     padding: 32px 28px;
     background-color: #fff;
     box-shadow: 0 0 10px 4px rgba($color: variables.$palletblue-color, $alpha: 0.15);

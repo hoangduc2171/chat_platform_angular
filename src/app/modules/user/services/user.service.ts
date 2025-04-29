@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AppRoutingModule } from '../../../app-routing.module';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Injectable({
     providedIn: 'root',
@@ -18,9 +18,18 @@ export class UserService {
 
     createUserForm() : FormGroup {
         return this.formBuilder.group({
-            first_name: '',
-            last_name: '', 
-            email: '',
+            first_name: [
+                '', [Validators.required]
+            ], 
+            last_name: [
+                '', [Validators.required]
+            ], 
+            email: [
+                '', [
+                    Validators.required,
+                    Validators.email
+                ]
+            ],
             desc: '',
         })
     }

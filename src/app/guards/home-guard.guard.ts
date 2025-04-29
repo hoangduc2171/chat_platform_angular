@@ -15,7 +15,7 @@ export class HomeGuard implements CanActivate {
       if (localStorage.getItem('admin')) {
         return true;
       } else {
-        this.router.navigate(['/login']);
+        this.router.navigate(['auth/login']);
         return false;
       }
     }

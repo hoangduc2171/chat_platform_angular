@@ -2,10 +2,11 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'app-auth',
-    template: `
-        <h1>Hello</h1>
-        <mat-button></mat-button>
-    `,
+    templateUrl: 'auth.component.html',
+    styleUrls: [
+        'auth.component.scss',
+        'responsive.scss'
+    ]
 })
 
 export class AuthComponent {

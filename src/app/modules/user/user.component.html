@@ -4,6 +4,7 @@
         <mat-button
             label="Thêm mới"
             (clickEmitter)="createUserModal.toggleModal()"
+            icon="fa-solid fa-plus"
         ></mat-button>
     </div>
     <div class="user-list-container">
@@ -43,6 +44,7 @@
             ></mat-button>
             <mat-button
                 label="Đồng ý"
+                [disable]="createForm.getForm().invalid"
                 (clickEmitter)="createForm.create()"
             ></mat-button>
         </div>

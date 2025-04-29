@@ -1,11 +1,13 @@
 <div class="user-detail-options">
     <mat-button 
         label="Cập nhật"
+        icon="fa-solid fa-repeat"
         (click)="updateUserModal.toggleModal()">
     </mat-button>
     <mat-button 
         [isOutline]="true"
         label="Xóa"
+        icon="fa-solid fa-trash"
         (click)="deleteUserModal.toggleModal()">
     </mat-button>
 </div>
@@ -37,6 +39,7 @@
             ></mat-button>
             <mat-button
                 label="Cập nhật"
+                [disable]="updateUser.getForm().invalid"
                 (clickEmitter)="updateUser.update()"
             ></mat-button>
         </div>

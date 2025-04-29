@@ -18,14 +18,6 @@ export class MatModalComp {
         this.isShowModal = !this.isShowModal;
     }
     ngAfterViewInit(): void {
-        const modalElement = this.modalContainer.nativeElement;
-        modalElement.onclick = () => {
-            this.toggleModal();
-        }
-        // Ngăn sự kiện nổi bọt từ element
-        modalElement.firstChild?.addEventListener('click', (e) => {
-            e.stopPropagation();
-        })
         // Nút tắt Modal trong modal
         this.closeButton.nativeElement.onclick = () => {
             this.toggleModal();

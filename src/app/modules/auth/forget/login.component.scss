@@ -48,7 +48,7 @@
         top: 6px;
         opacity: 0;
         font-weight: 600;
-        font-size: 10px;
+        font-size: 12px;
         color: variables.$palletblue-color;
     }
 
@@ -80,29 +80,6 @@
         &:not(:focus) ~ label {
             color: variables.$gray-color;
         }
-    }
-}
-
-.input-field.invalid {
-    label {
-        color: variables.$red-color !important; 
-        top: 6px;
-        opacity: 1;
-    }
-
-    input {
-        padding: 20px 12px 8px 12px;
-        border: 1px solid variables.$red-color;
-        outline: 1px solid variables.$red-color;
-        background-color: rgba($color: variables.$red-color, $alpha: 0.01);
-    }
-
-    .input-subtext {
-        color: variables.$red-color;
-        font-size: 12px;
-        text-align: left;
-        font-weight: 600;
-        margin-top: 4px;
     }
 }
 
@@ -153,7 +130,7 @@
             display: none;
             content: "";
             position: absolute;
-            top: 16px;
+            top: 14px;
             left: 7px;
             height: 7px;
             width: 3px;
@@ -232,30 +209,6 @@
 }
 
 // Error Message 
-
-.modal-error {
-    text-align: center;
-    img {
-        width: 50%;
-    }
-
-    h3 {
-        font-size: 1.4rem;
-        margin-top: 12px;
-    }
-
-    .actions {
-        margin-top: 24px;
-
-        .btn {
-            font-size: 13px;
-            padding: 8px 16px;
-            color: variables.$red-color;
-            font-weight: 600;
-            text-decoration: none;
-        }
-    }
-}
 
 
 

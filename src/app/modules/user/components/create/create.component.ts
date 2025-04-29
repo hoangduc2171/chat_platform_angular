@@ -1,5 +1,5 @@
 
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserService } from "../../services/user.service";
 import { Router } from "@angular/router";
@@ -13,14 +13,24 @@ export class FeUserCreateComp {
 
     constructor(
         private userService: UserService,
-        private router : Router
+        private router : Router,
+        private cdr: ChangeDetectorRef
     ) {
         this.createForm = userService.createUserForm()
     }
+
+    getForm(): FormGroup {
+        return this.createForm;
+    }
+
     create() {
         this.userService.createUser(this.createForm.value).subscribe({
+            // Cập nhật lại danh sách
             next: () => {
-                this.router.navigate(['user']);
+                const currentUrl = this.router.url;
+                this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                    this.router.navigate([currentUrl]);
+                });
             }
         })
     }

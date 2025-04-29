@@ -7,7 +7,6 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 @Component({
     selector: 'update-user',
     template: `<user-form [formName]="updateForm"></user-form>`,
-    styleUrls: ['./update.component.scss']
 })
 
 export class FeUpdateUserComp {
@@ -22,6 +21,10 @@ export class FeUpdateUserComp {
 
     ngOnInit(): void {
         this.updateForm.patchValue(this.user);
+    }
+
+    getForm(): FormGroup {
+        return this.updateForm;
     }
 
     update() {
