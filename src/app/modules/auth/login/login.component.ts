@@ -53,9 +53,13 @@ export class FeatureLoginComp {
                         logOutService.checkInLogOut();
                         loading.hide();
                         router.navigate(['/users'])
+                    } else {
+                        loading.hide();
+                        toast.showToast('Mật khẩu không đúng!', 'error')
                     }
                 } else {
-                    toast.showToast('Tài khoản không tồn tại!', 'error')
+                    loading.hide();
+                    toast.showToast('Tài khoản không tồn tại!', 'warning')
                 }
             },
         })

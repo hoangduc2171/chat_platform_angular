@@ -11,13 +11,13 @@ let list : any[] = [
     id: 1, 
     title: 'Danh sách đối tác', 
     icon: 'fa-solid fa-comments', 
-    path: 'opposite-list'
+    path: ''
   }, 
   {
     id: 2, 
     title: 'Danh sách sản phấm', 
     icon: 'fa-solid fa-inbox', 
-    path: 'product-list'
+    path: ''
   }
 ]
 
