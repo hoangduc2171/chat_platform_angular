@@ -20,7 +20,7 @@
             </table>
         </div>
         <div class="user-list-content">
-            <table>
+            <table *ngIf="lengthOfUsers > 0;else empty">
                 <tr *ngFor="let user of users; trackBy: trackByfn" (click)="showDetailUser(user.id)" >
                     <td style="width: 20px;">{{ user.id }}</td>
                     <td>
@@ -31,6 +31,12 @@
                     <td>{{ user.email }}</td>
                 </tr>
             </table>
+            <ng-template #empty>
+                <div style="text-align: center; margin: 24px 0 36px 0;">
+                    <img style="width: 200px;" src="../../../assets/img/forget.png" alt="">
+                    <p style="margin-top: 8px; font-weight: 600;">Không có dữ liệu!</p>
+                </div>
+            </ng-template>
         </div>
     </div>
     <p class="user-list-counting">Tổng số<b style="color: #EE0033;"> {{ lengthOfUsers || '...' }} </b>người dùng</p>

@@ -12,7 +12,7 @@
     overflow: hidden;
     align-items: center;
     box-shadow: 0 0 10px 4px rgba($color: variables.$palletblue-color, $alpha: 0.15);
-    animation: animations.$fadeIn 0.3s forwards;
+    animation: animations.$fadeIn ease 0.3s, animations.$slideOut linear 1s 2s forwards;
 
     .error-close {
         font-size: 24px;

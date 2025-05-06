@@ -1,6 +1,8 @@
 
 $fadeIn: FadeIn;
 $moveDown: MoveDown;
+$slideInLeft: slideInLeft;
+$slideOut: slideOut;
 
 @keyframes FadeIn {
     from {
@@ -17,5 +19,21 @@ $moveDown: MoveDown;
     } to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(32px));
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
     }
 }

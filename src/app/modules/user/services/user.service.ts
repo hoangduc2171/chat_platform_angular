@@ -13,6 +13,7 @@ import { LoadingService } from "src/app/shared/loading/loading.service";
 
 export class UserService {
     private apiUrl = 'https://6804980a79cb28fb3f5b5662.mockapi.io/users';
+    
     constructor(
         private http : HttpClient, 
         private formBuilder : FormBuilder
@@ -45,7 +46,6 @@ export class UserService {
     }
 
     updateUser(id: number,user: FormData): Observable<any> {
-        
         return this.http.put(`${this.apiUrl}/${id}`, user);
     }
 

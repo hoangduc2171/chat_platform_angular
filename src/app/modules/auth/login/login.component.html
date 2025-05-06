@@ -41,6 +41,7 @@
         [isFullSize]="true"
         [disable]="loginForm.invalid"
         (clickEmitter)="signIn()"
+        [delay]="3000"
     ></mat-button>
     <div class="form-supports">
         <span (click)="loginModal.toggleModal()" >Bạn chưa có tài khoản?</span>

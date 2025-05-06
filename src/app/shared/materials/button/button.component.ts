@@ -1,5 +1,7 @@
-import { Component, Input, Output } from "@angular/core";
+import { Component, ElementRef, Input, Output, ViewChild } from "@angular/core";
 import { EventEmitter } from "@angular/core";
+import { fromEvent } from "rxjs";
+import { throttleTime } from "rxjs/operators";
 
 @Component({
     selector: 'mat-button',
@@ -9,7 +11,6 @@ import { EventEmitter } from "@angular/core";
             [class.outline]="isOutline"
             [class.onlyText]="onlyText"
             [class.full-size]="isFullSize"
-            (click)="onClick($event)"
             [disabled]="disable"
         ><i [style.display]="!icon && 'none'" [className]="icon"></i>{{ label }}</button>
     `,
@@ -26,9 +27,18 @@ export class MatButtonComp {
     @Input() isFullSize: boolean = false;
     @Input() icon: string = ''; 
     @Input() disable: boolean = false;
+    @Input() delay!: number;
     @Output() clickEmitter = new EventEmitter();
-    
-    onClick(event: any) {
-        this.clickEmitter.emit(event);
+    @ViewChild('button') button! : ElementRef;
+
+    ngAfterViewInit(): void {
+        fromEvent(this.button.nativeElement, 'click').pipe(
+            throttleTime(this.delay)
+            
+        ).subscribe(() => {
+            console.log(this.delay);
+            this.clickEmitter.emit(event);
+        });
     }
+
 }
