@@ -10,6 +10,7 @@ const routes: Routes = [
     path: '',
     component: HomeLayoutComponent,
     children: [
+      { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)},
       { path: 'users', loadChildren: () => import('./modules/user/user.module').then(m => m.FeatureUserModule)},
     ],
     canActivate: [HomeGuard]
