@@ -10,6 +10,7 @@ export class HomeLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

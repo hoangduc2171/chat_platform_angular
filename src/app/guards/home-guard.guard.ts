@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LogOutService } from '../shared/services/logout.service';
+import { AuthService } from '../modules/auth/services/login.service';
 
 @Injectable({ 
   providedIn: 'root'
 })
 export class HomeGuard implements CanActivate {
-  constructor (private router: Router, private logOutService: LogOutService) {}
+  constructor (private router: Router, private auth: AuthService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,

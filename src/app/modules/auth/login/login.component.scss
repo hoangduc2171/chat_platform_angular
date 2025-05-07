@@ -8,10 +8,11 @@
 }
 
 #sign-in__form {
-    @include mixin.form-content(100%);
+    @include mixin.form-content(70%);
 }
 
 #sign-in__form {
+
     .vss-logo {
         width: 50%;
         margin: 8px auto;

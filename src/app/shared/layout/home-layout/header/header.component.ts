@@ -1,8 +1,8 @@
 import { Location } from "@angular/common";
 import { Component, ContentChild, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "src/app/modules/auth/services/login.service";
 import { User } from "src/app/modules/user/models/user.model";
-import { LogOutService } from "src/app/shared/services/logout.service";
 
 let user : User = {
     id: 7,
@@ -25,14 +25,14 @@ export class HeaderComponent {
     user = user;
 
     constructor(
-        private logOutService : LogOutService, 
+        private auth : AuthService, 
         private router: Router,
         private location: Location,
     ) { }
     
     ngAfterViewInit(): void {
         this.logOutButton.nativeElement.onclick = () => {
-           this.logOutService.isLogOut();
+           this.auth.isLogOut();
            this.router.navigate(['/auth/login']);
         }
     }

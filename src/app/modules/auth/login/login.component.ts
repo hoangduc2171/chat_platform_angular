@@ -3,10 +3,10 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { LogOutService } from "src/app/shared/services/logout.service";
 import { ToastService } from '../../../shared/materials/toast/toast.service';
 import { LoadingService } from "src/app/shared/loading/loading.service";
 import { throttleTime } from "rxjs/operators";
+import { AuthService } from "../services/login.service";
 
 @Component({
     selector: 'feature-login',
@@ -19,7 +19,7 @@ import { throttleTime } from "rxjs/operators";
 export class FeatureLoginComp {
     loginForm! : FormGroup;
     constructor (
-        private logOutService: LogOutService,
+        private auth: AuthService,
         private router: Router,
         private http: HttpClient,
         private toastService : ToastService,
@@ -41,7 +41,7 @@ export class FeatureLoginComp {
         let form = this.loginForm;
         let router = this.router;
         let toast = this.toastService;
-        const logOutService = this.logOutService;
+        const auth = this.auth;
         let loading = this.loading;
         loading.show();
         this.http.get('https://6804980a79cb28fb3f5b5662.mockapi.io/decentralization').subscribe({
@@ -51,7 +51,7 @@ export class FeatureLoginComp {
                 })[0];
                 if (!!isAccount) {
                     if (isAccount.password === form.value.password) {
-                        logOutService.checkInLogOut();
+                        auth.checkInLogOut();
                         loading.hide();
                         router.navigate(['/users'])
                     } else {
