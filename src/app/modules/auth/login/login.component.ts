@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 import { ToastService } from '../../../shared/materials/toast/toast.service';
 import { LoadingService } from "src/app/shared/loading/loading.service";
 import { throttleTime } from "rxjs/operators";
-import { AuthService } from "../services/login.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
     selector: 'feature-login',
@@ -19,9 +19,8 @@ import { AuthService } from "../services/login.service";
 export class FeatureLoginComp {
     loginForm! : FormGroup;
     constructor (
-        private auth: AuthService,
+        private authService: AuthService,
         private router: Router,
-        private http: HttpClient,
         private toastService : ToastService,
         private loading: LoadingService
     ) {
@@ -41,17 +40,17 @@ export class FeatureLoginComp {
         let form = this.loginForm;
         let router = this.router;
         let toast = this.toastService;
-        const auth = this.auth;
+        const authService = this.authService;
         let loading = this.loading;
         loading.show();
-        this.http.get('https://6804980a79cb28fb3f5b5662.mockapi.io/decentralization').subscribe({
+        this.authService.getDecentralizationApi().subscribe({
             next(data: any) {
                 const isAccount = data.filter((element: any) => {
                     return element.username == form.value.username;
                 })[0];
                 if (!!isAccount) {
                     if (isAccount.password === form.value.password) {
-                        auth.checkInLogOut();
+                        authService.checkInLogOut();
                         loading.hide();
                         router.navigate(['/users'])
                     } else {

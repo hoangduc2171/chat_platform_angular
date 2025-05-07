@@ -24,7 +24,6 @@ import { AppLoading } from './shared/loading/loading.component';
     HomeLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    FeatureUserModule, 
     HttpClientModule,
     MaterialsModule
   ],

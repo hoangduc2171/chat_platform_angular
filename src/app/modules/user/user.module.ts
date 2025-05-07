@@ -1,11 +1,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FeatureUserComponent } from './user.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { MaterialsModule } from "src/app/shared/materials/materials.module";
 import { FeUserCreateComp } from "./components/create/create.component";
 import { FeUpdateUserComp } from "./components/update/update.component";
 import { FeatureUserDetailComp } from "./components/detail/detail.component";
+import { HomeLayoutModule } from "src/app/shared/layout/home-layout/home-layout.module";
+
+const routes : Routes = [
+    { path: '', component: FeatureUserComponent},
+    { path: 'detail/:id', component: FeatureUserDetailComp}
+]
 
 @NgModule({
     declarations: [
@@ -15,9 +21,10 @@ import { FeatureUserDetailComp } from "./components/detail/detail.component";
         FeatureUserDetailComp
     ], 
     imports: [
+    RouterModule.forChild(routes),
     CommonModule,
-    RouterModule,
     MaterialsModule,
+    HomeLayoutModule
 ],
     exports: [FeatureUserComponent]
 })

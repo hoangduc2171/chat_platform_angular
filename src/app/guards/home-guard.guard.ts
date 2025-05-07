@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../modules/auth/services/login.service';
+import { AuthService } from '../modules/auth/services/auth.service';
 
 @Injectable({ 
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class HomeGuard implements CanActivate {
       if (localStorage.getItem('admin')) {
         return true;
       } else {
-        this.router.navigate(['auth/login']);
+        this.router.navigate(['auth']);
         return false;
       }
     }

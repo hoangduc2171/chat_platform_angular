@@ -27,8 +27,8 @@
     
             .panel-image {
                 grid-area: image;
-                width: 100%;
-                margin-left: 8px;
+                width: 80%;
+                margin-left: 36px;
             }
     
             .panel-content {
@@ -46,11 +46,7 @@
         .form-container {
             justify-content: center;
             align-items: flex-start;
-    
-            #sign-in__form {
-                min-width: 60%;
-                margin: 0;
-            }
+
         }
     
         #language-box {
@@ -75,12 +71,8 @@
         }
 
         .form-container {
+            width: 100%;
             justify-content: center;
-        }
-
-        #sign-in__form {
-            margin-right: 0;
-            width: 90%;
         }
 
         #language-box{
