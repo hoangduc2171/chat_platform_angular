@@ -6,13 +6,13 @@ import { BehaviorSubject } from "rxjs";
 })
 
 export class ToastService {
-    toastMessage$ = new BehaviorSubject<{message: string, type: string} | null>(null);
+    public toastMessage = new BehaviorSubject<{message: string, type: string} | null>(null);
 
     showToast(message: string, type: 'success' | 'error' | 'warning' = 'success', duration = 3000) {
-        this.toastMessage$.next({message, type});
+        this.toastMessage.next({message, type});
 
         setTimeout(() => {
-            this.toastMessage$.next(null);
+            this.toastMessage.next(null);
         }, duration)
     }
 }

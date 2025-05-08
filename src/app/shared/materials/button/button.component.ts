@@ -36,7 +36,6 @@ export class MatButtonComp {
             throttleTime(this.delay)
             
         ).subscribe(() => {
-            console.log(this.delay);
             this.clickEmitter.emit(event);
         });
     }

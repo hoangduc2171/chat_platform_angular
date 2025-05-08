@@ -52,6 +52,7 @@ export class FeatureLoginComp {
                     if (isAccount.password === form.value.password) {
                         authService.checkInLogOut();
                         loading.hide();
+                        toast.showToast('Đăng nhập thành công', 'success', 5000);
                         router.navigate(['/users'])
                     } else {
                         loading.hide();
