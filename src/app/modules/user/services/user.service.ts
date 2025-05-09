@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { User } from "../models/user.model";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { AppRoutingModule } from '../../../app-routing.module';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { LoadingService } from "src/app/shared/loading/loading.service";
@@ -13,7 +13,6 @@ import { LoadingService } from "src/app/shared/loading/loading.service";
 
 export class UserService {
     private apiUrl = 'https://6804980a79cb28fb3f5b5662.mockapi.io/users';
-    
     constructor(
         private http : HttpClient, 
         private formBuilder : FormBuilder
@@ -42,7 +41,7 @@ export class UserService {
     }
 
     createUser(user: FormData): Observable<any> {
-        return this.http.post(this.apiUrl, user);
+        return this.http.post(this.apiUrl, user)
     }
 
     updateUser(id: number,user: FormData): Observable<any> {
@@ -53,3 +52,4 @@ export class UserService {
         return this.http.delete(`${this.apiUrl}/${id}`);
     }
 }
+

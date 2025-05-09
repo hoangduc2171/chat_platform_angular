@@ -14,4 +14,5 @@ export class UserTransferService {
     setData(value: any) {
         this.data = value;
     }
+
 }

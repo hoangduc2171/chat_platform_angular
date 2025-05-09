@@ -12,11 +12,13 @@ const routes: Routes = [
   { 
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    data: { breadcumb: 'Trang chủ' },
     canActivate: [HomeGuard]
   },
   {
     path: 'users',
     loadChildren: () => import('./modules/user/user.module').then(m => m.FeatureUserModule),
+    data: { breadcumb: 'Danh sách người dùng' },
   },
 ];
 

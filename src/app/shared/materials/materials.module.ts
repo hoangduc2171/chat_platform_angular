@@ -6,7 +6,6 @@ import { MatToastComp } from "./toast/toast.component";
 import { MatUserFormComp } from "./form/user-form.component";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
-import { BreadcumbComponent } from "./breadcumb/breadcumb.component";
 
 @NgModule({
     declarations: [
@@ -15,7 +14,6 @@ import { BreadcumbComponent } from "./breadcumb/breadcumb.component";
         MatDropdownComp,
         MatToastComp,
         MatUserFormComp,
-        BreadcumbComponent
 
     ],
     imports: [
@@ -28,7 +26,6 @@ import { BreadcumbComponent } from "./breadcumb/breadcumb.component";
         MatDropdownComp,
         MatToastComp,
         MatUserFormComp,
-        BreadcumbComponent
     ]
 })
 
