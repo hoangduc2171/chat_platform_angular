@@ -1,15 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/user.model';
-import { FeatureUserComponent } from '../../user.component';
-import { UserTransferService } from '../../services/data-transfer.service';
+
 
 @Component({
     selector: 'feature-user-detail',
-    templateUrl: 'detail.component.html',
+    templateUrl: './detail.component.html',
     styleUrls: [
-        'detail.component.scss'
+        './detail.component.scss'
     ]
 })
 

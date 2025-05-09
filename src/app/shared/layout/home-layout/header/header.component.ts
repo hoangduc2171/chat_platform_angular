@@ -1,6 +1,6 @@
 import { Location } from "@angular/common";
 import { Component, ContentChild, ElementRef, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService } from "src/app/modules/auth/services/auth.service";
 import { User } from "src/app/modules/user/models/user.model";
 
@@ -27,7 +27,6 @@ export class HeaderComponent {
     constructor(
         private auth : AuthService, 
         private router: Router,
-        private location: Location,
     ) { }
     
     ngAfterViewInit(): void {
@@ -35,9 +34,5 @@ export class HeaderComponent {
            this.auth.isLogOut();
            this.router.navigate(['/auth']);
         }
-    }
-
-    goBack() {
-        this.location.back();
     }
 }

@@ -1,14 +1,16 @@
-<div id="home-container">
-    <img src="../../../assets/img/home-image.png" alt="home-image">
-    <div class="home-content">
-        <h1 class="home-content-header">
-            Hello, Are you OK?
-        </h1>
-        <mat-button
-            label="Danh sách người dùng"
-            [isOutline]="true"
-            (clickEmitter)="onNavigate()"
-            icon="fa-solid fa-arrow-right"
-        ></mat-button>
+<app-home-layout>
+    <div id="home-container">
+        <img src="../../../assets/img/home-image.png" alt="home-image">
+        <div class="home-content">
+            <h1 class="home-content-header">
+                Hello, Are you OK?
+            </h1>
+            <mat-button
+                label="Danh sách người dùng"
+                [isOutline]="true"
+                (clickEmitter)="onNavigate()"
+                icon="fa-solid fa-arrow-right"
+            ></mat-button>
+        </div>
     </div>
-</div>
+</app-home-layout>

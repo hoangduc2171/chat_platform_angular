@@ -5,7 +5,7 @@ let list : any[] = [
     id: 0, 
     title: 'Danh sách người dùng', 
     icon: 'fa-solid fa-user', 
-    path: 'users'
+    path: '/users'
   },
   {
     id: 1, 

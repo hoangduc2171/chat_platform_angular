@@ -7,10 +7,17 @@ import { FeUserCreateComp } from "./components/create/create.component";
 import { FeUpdateUserComp } from "./components/update/update.component";
 import { FeatureUserDetailComp } from "./components/detail/detail.component";
 import { HomeLayoutModule } from "src/app/shared/layout/home-layout/home-layout.module";
+import { AppListUserComponent } from "./components/list-user/list-user.component";
 
 const routes : Routes = [
-    { path: '', component: FeatureUserComponent},
-    { path: 'detail/:id', component: FeatureUserDetailComp}
+    { 
+        path: '', component: FeatureUserComponent, 
+        children: [
+            { path: '', component: AppListUserComponent},
+            { path: 'detail/:id', component: FeatureUserDetailComp, data: { breadcrumb: 'Chi tiết người dùng' }}
+        ]
+    },
+    
 ]
 
 @NgModule({
@@ -18,7 +25,8 @@ const routes : Routes = [
         FeatureUserComponent, 
         FeUserCreateComp,
         FeUpdateUserComp,
-        FeatureUserDetailComp
+        FeatureUserDetailComp,
+        AppListUserComponent,
     ], 
     imports: [
     RouterModule.forChild(routes),

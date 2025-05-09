@@ -23,5 +23,8 @@ export class MatToastComp {
 
     hideToast() {
         this.toggleToast = true;
+        setTimeout(() => {
+            this.toggleToast = false;
+        }, 5000)
     }
 }
