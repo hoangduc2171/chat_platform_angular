@@ -11,7 +11,7 @@ let list : any[] = [
     id: 1, 
     title: 'Danh sách đối tác', 
     icon: 'fa-solid fa-comments', 
-    path: ''
+    path: '/partners'
   }, 
   {
     id: 2, 

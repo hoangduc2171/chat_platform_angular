@@ -8,11 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeLayoutModule } from './shared/layout/home-layout/home-layout.module';
 import { MaterialsModule } from './shared/materials/materials.module';
 import { AppLoading } from './shared/loading/loading.component';
+import { PartnerDetailComponent } from './modules/partners/partner-detail/partner-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppLoading
+    AppLoading,
   ],
 
   imports: [

@@ -27,6 +27,7 @@ export class HeaderComponent {
     constructor(
         private auth : AuthService, 
         private router: Router,
+        private location: Location
     ) { }
     
     ngAfterViewInit(): void {
@@ -34,5 +35,9 @@ export class HeaderComponent {
            this.auth.isLogOut();
            this.router.navigate(['/auth']);
         }
+    }
+
+    goBack() {
+        this.location.back();
     }
 }

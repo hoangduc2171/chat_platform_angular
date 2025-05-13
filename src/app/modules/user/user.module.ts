@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { FeatureUserComponent } from './user.component';
 import { RouterModule, Routes } from "@angular/router";
 import { MaterialsModule } from "src/app/shared/materials/materials.module";
 import { FeUserCreateComp } from "./components/create/create.component";
@@ -10,19 +9,12 @@ import { HomeLayoutModule } from "src/app/shared/layout/home-layout/home-layout.
 import { AppListUserComponent } from "./components/list-user/list-user.component";
 
 const routes : Routes = [
-    { 
-        path: '', component: FeatureUserComponent, 
-        children: [
-            { path: '', component: AppListUserComponent},
-            { path: 'detail/:id', component: FeatureUserDetailComp, data: { breadcrumb: 'Chi tiết người dùng' }}
-        ]
-    },
-    
+    { path: '', component: AppListUserComponent},
+    { path: 'detail/:id', component: FeatureUserDetailComp }
 ]
 
 @NgModule({
     declarations: [
-        FeatureUserComponent, 
         FeUserCreateComp,
         FeUpdateUserComp,
         FeatureUserDetailComp,
@@ -34,7 +26,12 @@ const routes : Routes = [
     MaterialsModule,
     HomeLayoutModule
 ],
-    exports: [FeatureUserComponent]
+    exports: [
+        FeUserCreateComp,
+        FeUpdateUserComp,
+        FeatureUserDetailComp,
+        AppListUserComponent,
+    ],
 })
 
 export class FeatureUserModule {

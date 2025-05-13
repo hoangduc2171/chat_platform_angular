@@ -1,0 +1,90 @@
+<form class="partner-form-container" [formGroup]="partnerForm">
+    <div class="form-field">
+        <label for="">
+            Tên đối tác
+            <span *ngIf="">*</span>
+        </label>
+        <div class="input-field">
+            <i class="fa-regular fa-user"></i>
+            <input type="text" placeholder="Tên đối tác">
+        </div>
+    </div>
+    <div class="col-half">
+        <div class="form-field">
+            <label for="">
+                Số điện thoại
+            </label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" placeholder="Số điện thoại">
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="">
+                Email
+            </label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" placeholder="Email">
+            </div>
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="">Loại hình doanh nghiệp</label>
+        <div class="input-field">
+            <i class="fa-regular fa-envelope"></i>
+            <select formControlName="jobArea">
+                <option value="">Chọn lĩnh vực</option>
+                <option [value]="item.name" [disabled]="selectedJobArea.includes(item.name)" *ngFor="let item of jobAreas">
+                    {{ item.name }}
+                </option>
+            </select>
+            <div class="selected-field">
+                <span *ngFor="let item of selectedJobArea">
+                    {{ item }}
+                    <button>
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-half">
+        <div class="form-field">
+            <label for="">Tỉnh/Thành phố</label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <select name="">
+                    <option value="" selected>Chọn tỉnh/thành phố</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="">Quận/Huyện</label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <select name="">
+                    <option value="" selected>Chọn quận/huyện</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-half">
+        <div class="form-field">
+            <label for="">Phường/Xã</label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <select name="">
+                    <option value="" selected>Chọn phường/xã</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-field">
+            <label for="">Địa chỉ</label>
+            <div class="input-field">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" placeholder="Nhập địa chỉ cụ thể">
+            </div>
+        </div>
+    </div>
+</form>

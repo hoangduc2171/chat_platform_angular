@@ -8,8 +8,8 @@
             icon="fa-solid fa-plus"
         ></mat-button>
     </div>
-    <div class="user-list-container">
-        <div class="user-list-heading">
+    <div class="table-container">
+        <div class="table-heading">
             <table>
                 <tr>
                     <th>ID</th>
@@ -20,7 +20,7 @@
                 </tr>
             </table>
         </div>
-        <div class="user-list-content">
+        <div class="table-content">
             <table *ngIf="lengthOfUsers > 0;else empty">
                 <tr *ngFor="let user of users; trackBy: trackByfn" (click)="showDetailUser(user.id)" >
                     <td style="width: 20px;">{{ user.id }}</td>

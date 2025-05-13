@@ -1,0 +1,125 @@
+@use '../../../../variables';
+@use '../../../../animations';
+
+.partner-form-container {
+    .col-half {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        
+        .form-field {
+            width: 50%;
+        }
+    }
+
+    .form-field {
+        margin-bottom: 12px;
+
+        * {
+            animation: animations.$fadeIn ease 0.3s;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+
+            span {
+                color: variables.$red-color;
+                font-weight: 600;
+            }
+        }
+
+        &.error {
+            small, label {
+                color: variables.$red-color;
+                font-weight: 600;
+            }
+
+            input, select {
+                border: 1px solid variables.$red-color;
+                outline: 1px solid variables.$red-color;
+            }
+        }
+    }
+
+    .input-field {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+
+        & > i {
+            position: absolute;
+            color: variables.$gray-color;
+            margin-left: 12px;
+            font-size: 12px;
+        }
+
+        textarea, input, select {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid variables.$gray-color;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 8px 24px 8px 36px;
+        }
+
+        select {
+            padding: 8px 24px 8px 36px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            option[disabled] {
+                background-color: variables.$palletblue-color;
+                color: #fff;
+            }
+        }
+
+        input::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: variables.$gray-color;
+            width: 2px;
+            height: 80%;
+            top: 0;
+        }
+
+        textarea {
+            padding: 16px;
+            height: 150px;
+            resize: none;
+        }
+
+        .selected-field {
+            position: absolute;
+            left: 36px;
+
+            span {
+                background-color: variables.$palletblue-color;
+                padding: 4px 8px;
+                font-size: 13px;
+                color: white;
+                border-radius: 4px;
+                margin-right: 6px;
+                margin-top: 4px;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                font-size: 12px;
+                cursor: pointer;
+                margin-left: 4px;
+                color: #fff;
+                font-size: 10px;
+            }
+        }
+    }
+}
+

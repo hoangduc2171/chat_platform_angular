@@ -11,14 +11,23 @@ const routes: Routes = [
   },
   { 
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
-    data: { breadcumb: 'Trang chủ' },
+    component: HomeLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'users',
+        pathMatch: 'full'
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./modules/user/user.module').then(m => m.FeatureUserModule),
+      },
+      {
+        path: 'partners',
+        loadChildren: () => import('./modules/partners/partner.module').then(m => m.PartnerModule),
+      },
+    ],
     canActivate: [HomeGuard]
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('./modules/user/user.module').then(m => m.FeatureUserModule),
-    data: { breadcumb: 'Danh sách người dùng' },
   },
 ];
 
