@@ -5,6 +5,7 @@ export interface ServicePackage {
     caption: string,
     features: { content: string, type: 'limited' | 'unlimited' }[],
     image: string,
+    term: 'Tháng' | '6 Tháng' | 'Năm',
     createdAt?: Date,
 }
 
@@ -18,10 +19,10 @@ export interface Partner {
       provinceId: number,
       districtId: number,
       wardId: number,
-      detailAddress: string
+      detailAddress?: string
     },
     serviceChoose: {
-      serviceId: number,
+      id: number,
       term: number
     },
     createAt: Date,
@@ -30,4 +31,18 @@ export interface Partner {
 export interface JobArea {
   id: number, 
   name: string
+}
+
+export interface Province {
+  code: number, 
+  name: string, 
+  divison_type: string,
+  codename: string,
+  phone_code: number,
+  district?: [
+
+  ],
+  wards: [
+
+  ]
 }

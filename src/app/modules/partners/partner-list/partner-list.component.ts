@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { JobArea, Partner } from 'src/app/models/type';
 import { PartnerService } from '../partner.service';
 import { LoadingService } from '../../../shared/loading/loading.service';
 import { Router } from '@angular/router';
+import { ServicePackage } from '../../../models/type';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './partner-list.component.html',
   styleUrls: ['./partner-list.component.scss']
 })
-export class PartnerListComponent implements OnInit {
+export class PartnerListComponent {
   partners!: Partner[];
   partnersLength: number = 0;
   jobAreas: JobArea[] = [
@@ -47,20 +48,23 @@ export class PartnerListComponent implements OnInit {
   constructor(
     private partnerService: PartnerService,
     private loading: LoadingService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.loading.show();
-    this.partnerService.getListPartner().subscribe(data => {
-      this.partners = data;
-      this.partnersLength = this.partners.length;
-      this.loading.hide();
-    })
+      this.partnerService.getListPartner().subscribe(data => {
+        this.partners = data;
+        this.partnersLength = this.partners.length;
+        this.loading.hide();
+      })
   }
 
-  getJobArea(id: number) {
-    return this.jobAreas.find(area => area.id === id)?.name;
+  getServicePackage(service: any) {
+    this.partnerService.getServicePackages().subscribe((data: ServicePackage[]) => {
+      service = data.find((item: ServicePackage) => item.id === service.id);
+    });
+    return service;
   }
 
   onRedirectCreate() {

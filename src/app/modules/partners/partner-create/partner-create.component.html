@@ -1,90 +1,185 @@
-<form class="partner-form-container" [formGroup]="partnerForm">
-    <div class="form-field">
-        <label for="">
-            Tên đối tác
-            <span *ngIf="">*</span>
-        </label>
-        <div class="input-field">
-            <i class="fa-regular fa-user"></i>
-            <input type="text" placeholder="Tên đối tác">
-        </div>
-    </div>
-    <div class="col-half">
-        <div class="form-field">
+<form class="partner-form" [formGroup]="partnerForm" *ngIf="isShowForm; else serviceFormTpl">
+    <div class="infor-form-container">
+        <div class="form-field" [class.error]="onCheckRequired('name')">
             <label for="">
-                Số điện thoại
+                Tên đối tác
+                <span>*</span>
             </label>
             <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="text" placeholder="Số điện thoại">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Tên đối tác" formControlName="name">
+            </div>
+            <span class="validate-message" *ngIf="onCheckRequired('name')">Bắt buộc</span>
+        </div>
+        <div class="col-half">
+            <div class="form-field" [class.error]="onCheckPhone('phone') || onCheckRequired('phone')">
+                <label for="">
+                    Số điện thoại
+                    <span>*</span>
+                </label>
+                <div class="input-field">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="text" placeholder="Số điện thoại" formControlName="phone">
+                </div>
+                <span class="validate-message" *ngIf="onCheckRequired('phone')">Bắt buộc</span>
+                <span class="validate-message" *ngIf="onCheckPhone('phone')">Vui lòng nhập đúng số điện thoại</span>
+            </div>
+            <div class="form-field" [class.error]="onCheckRequired('email') || onCheckEmail('email')">
+                <label for="">
+                    Email
+                    <span>*</span>
+                </label>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" placeholder="Email" formControlName="email">
+                </div>
+                <span class="validate-message" *ngIf="onCheckRequired('email')">Bắt buộc</span>
+                <span class="validate-message" *ngIf="onCheckEmail('email')">Vui lòng nhập đúng email</span>
             </div>
         </div>
-        <div class="form-field">
+        <div class="form-field" [class.error]="onCheckRequired('jobArea')">
             <label for="">
-                Email
+                Loại hình doanh nghiệp
+                <span>*</span>
             </label>
             <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="text" placeholder="Email">
-            </div>
-        </div>
-    </div>
-    <div class="form-field">
-        <label for="">Loại hình doanh nghiệp</label>
-        <div class="input-field">
-            <i class="fa-regular fa-envelope"></i>
-            <select formControlName="jobArea">
-                <option value="">Chọn lĩnh vực</option>
-                <option [value]="item.name" [disabled]="selectedJobArea.includes(item.name)" *ngFor="let item of jobAreas">
-                    {{ item.name }}
-                </option>
-            </select>
-            <div class="selected-field">
-                <span *ngFor="let item of selectedJobArea">
-                    {{ item }}
-                    <button>
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="col-half">
-        <div class="form-field">
-            <label for="">Tỉnh/Thành phố</label>
-            <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <select name="">
-                    <option value="" selected>Chọn tỉnh/thành phố</option>
+                <i class="fa-solid fa-building"></i>
+                <select style="color: transparent" formControlName="jobArea" (change)="onJobAreaChange()">
+                    <option style="color: #000" value="" selected>Chọn lĩnh vực</option>
+                    <option style="color: #000"
+                        [value]="item.name"
+                        [disabled]="selectedJobArea.includes(item)"
+                        *ngFor="let item of jobAreas"
+                    >
+                        {{ item.name }}
+                    </option>
                 </select>
+                <div class="selected-field">
+                    <span *ngFor="let item of selectedJobArea">
+                        {{ item }}
+                        <button (click)="removeJobArea(item)" type="button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <span class="validate-message" *ngIf="onCheckRequired('jobArea')">Bắt buộc</span>
+        </div>
+        <div class="col-half">
+            <div class="form-field">
+                <label for="">Tỉnh/Thành phố</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select name="" formControlName="province" (change)="onProvinceChange()">
+                        <option selected>Chọn tỉnh/thành phố</option>
+                        <option [value]="province.code" *ngFor="let province of provinces">
+                            {{ province.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="">Quận/Huyện</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select name="" formControlName="district" (change)="onDistrictChange()">
+                        <option value="" selected>Chọn quận/huyện</option>
+                        <option [value]="district.code" *ngFor="let district of districts">
+                            {{ district.name }}
+                        </option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="form-field">
-            <label for="">Quận/Huyện</label>
-            <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <select name="">
-                    <option value="" selected>Chọn quận/huyện</option>
-                </select>
+        <div class="col-half">
+            <div class="form-field">
+                <label for="">Phường/Xã</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select name="" formControlName="ward">
+                        <option value="" selected>Chọn phường/xã</option>
+                        <option [value]="ward.code" *ngFor="let ward of wards">
+                            {{ ward.name }}
+                        </option>
+                    </select>
+                </div>
             </div>
+            <div class="form-field">
+                <label for="">Địa chỉ</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" placeholder="Nhập địa chỉ cụ thể">
+                </div>
+            </div>
+        </div>
+        <div class="form-controls" style="display: flex; gap: 36px; justify-content: center; margin-top: 36px;">
+            <mat-button
+                label="Hủy bỏ"
+                [isOutline]="true"
+            ></mat-button>
+            <mat-button
+                [disable]="partnerForm.invalid"
+                label="Tiếp tục"
+                (clickEmitter)="onToggleForm()"
+            ></mat-button>
         </div>
     </div>
-    <div class="col-half">
-        <div class="form-field">
-            <label for="">Phường/Xã</label>
-            <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <select name="">
-                    <option value="" selected>Chọn phường/xã</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-field">
-            <label for="">Địa chỉ</label>
-            <div class="input-field">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="text" placeholder="Nhập địa chỉ cụ thể">
-            </div>
-        </div>
-    </div>
+    
 </form>
+<!-- Form choose service package -->
+<ng-template #serviceFormTpl>
+    <form class="service-form-container" [formGroup]="serviceForm">
+        <h3>Chọn gói dịch vụ</h3>
+        <div class="service-term-list">
+            <div class="service-term-item" *ngFor="let item of [
+                { id: 1, text: 'Tháng', term: 1 },
+                { id: 2, text: '6 Tháng', term: 6 },
+                { id: 3, text: 'Năm', term: 12 },
+            ]">
+                <input type="radio" [id]="item.text" [value]="item.term" formControlName="serviceTerm">
+                <label [for]="item.text">
+                    <span>
+                        {{ item.text }}
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="service-list">
+            <div class="service-item" *ngFor="let item of servicePackages">
+                <input type="radio" [id]="item.name" [value]="item.id" formControlName="serviceName"/>
+                <label [for]="item.name">
+                    <div class="service-item-content">
+                        <h3>{{ item.name }}</h3>
+                        <h2 style="color: #EE0033;">{{ item.price | currencyVND}}</h2>
+                        <p>{{ item.caption }}</p>
+                        <ul>
+                            <li *ngFor="let feature of item.features">
+                                <i class="fa-solid fa-circle-check" style="color: #53D07C; margin-right: 6px;" *ngIf="(feature.type === 'unlimited'); else limitedIcon"></i>
+                                <ng-template #limitedIcon>
+                                    <i class="fa-solid fa-circle-xmark" style="color: #8D99BB; margin-right: 6px"></i>
+                                </ng-template>
+                                {{ feature.content }}
+                            </li>
+                        </ul>
+                    </div>
+                    <img class="service-item-image" src="../../../../assets/img/service-basic.png" alt="">
+                </label>
+            </div>
+        </div>
+    </form>
+    <div class="form-controls" style="display: flex; gap: 36px; justify-content: center; padding: 36px 0;">
+        <mat-button
+            label="Hủy bỏ"
+            [isOutline]="true"
+            (clickEmitter)="onToggleForm()"
+        ></mat-button>
+        <mat-button
+            label="Hoàn thành"
+            [delay]="2000"
+            (clickEmitter)="onSubmit()"
+        ></mat-button>
+    </div>
+</ng-template>
+<div class="background">
+    <img src="../../../../assets/img/partner-create-bgr.png" alt="">
+</div>

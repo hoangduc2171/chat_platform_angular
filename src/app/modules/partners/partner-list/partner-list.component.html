@@ -29,11 +29,15 @@
                 <td colspan="4">
                     <div style="display: flex; flex-wrap: wrap; align-items: center;">
                         <span *ngFor="let item of partner.jobArea">
-                        {{ getJobArea(item) }}
-                    </span>
+                            {{ item }}
+                        </span>
                     </div>
                 </td>
-                <td>{{ partner.serviceChoose.serviceId }}</td>
+                <td>
+                    <div>
+                        {{ getServicePackage(partner.serviceChoose)?.name }}
+                    </div>
+                </td>
                 <td>Đang sử dụng</td>
                 <td>{{ partner.createAt | dateTransform }}</td>
                 <td colspan="2"></td>
@@ -47,4 +51,4 @@
         </table>
     </div>
 </div>
-    <!-- <p class="partner-list-counting">Tổng số<b style="color: #EE0033;"> {{ lengthOfUsers || '...' }} </b>người dùng</p> -->
+
